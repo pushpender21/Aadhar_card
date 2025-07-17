@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Aadhar Card</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/imask"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <img src="/Aadhar Card/images/lion.png" class="logo logo-left" alt="Lion Logo"/>
+        <img src="/Aadhar Card/images/logo-top-img.png" class="logo logo-center" alt="Aadhar Logo"/>
+        <img src="/Aadhar Card/images/gov.png" class="logo logo-right" alt="Gov Logo"/>
+      </div>
+
+      <div class="card-body">
+        <div class="user-photo">
+          <img src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="User Image"/>
+        </div>
+        <div class="user-info">
+          <h2 id="name1">पुष्पेंद्र सिंह</h2>
+          <p><strong>जन्म-तिथि / DOB:</strong> <span id="name2">--/--/----</span></p>
+          <p><strong>लिंग / Gender:</strong> पुरुष / MALE</p>
+          <p class="aadhar-number" id="name3">0000 0000 0000</p>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <img src="/Aadhar Card/images/qr.png" alt="QR Code" class="qr-img"/>
+        <p>मेरा आधार, मेरी पहचान</p>
+      </div>
+    </div>
+
+    <div class="input-section">
+      <input type="text" id="fullname1" placeholder="Enter your name"/>
+      <input type="text" id="fullname2" placeholder="Enter your DOB (DD/MM/YYYY)"/>
+      <input type="text" id="fullname3" placeholder="Enter Aadhar Number"/>
+    </div>
+  </div>
+
+  <script>
+    const nameInput = document.getElementById('fullname1');
+    const dobInput = document.getElementById('fullname2');
+    const aadharInput = document.getElementById('fullname3');
+
+    IMask(dobInput, { mask: '00/00/0000' });
+    IMask(aadharInput, { mask: '0000 0000 0000' });
+
+    nameInput.addEventListener('input', () => {
+      document.getElementById('name1').innerText = nameInput.value || 'पुष्पेंद्र सिंह';
+    });
+
+    dobInput.addEventListener('input', () => {
+      document.getElementById('name2').innerText = dobInput.value || '--/--/----';
+    });
+
+    aadharInput.addEventListener('input', () => {
+      document.getElementById('name3').innerText = aadharInput.value || '0000 0000 0000';
+    });
+  </script>
+</body>
+</html>
